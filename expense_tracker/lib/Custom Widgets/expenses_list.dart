@@ -1,4 +1,5 @@
 import 'package:expense_tracker/Models/expense_model.dart';
+import 'package:expense_tracker/Utils/Enums/expense_categories.dart';
 import 'package:flutter/material.dart';
 
 class ExpensesList extends StatelessWidget {
@@ -18,7 +19,25 @@ class ExpensesList extends StatelessWidget {
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-        child: Text(expense.title),
+        child: Column(
+          children: [
+            Text(expense.title),
+            SizedBox(height: 4),
+            Row(
+              children: [
+                Text('\$${expense.amount.toStringAsFixed(2)}'),
+                Spacer(),
+                Row(
+                  children: [
+                    Icon(categoryIcons[expense.category]),
+                    SizedBox(width: 8),
+                    Text(expense.formattedDate),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
