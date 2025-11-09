@@ -1,9 +1,8 @@
-import 'dart:ffi';
-
 import 'package:expense_tracker/Custom%20Widgets/new_expense.dart';
 import 'package:expense_tracker/Dummy%20Data/expense_list.dart';
 import 'package:expense_tracker/Models/expense_model.dart';
 import 'package:expense_tracker/Custom%20Widgets/expenses_list.dart';
+import 'package:expense_tracker/Utils/theme_data.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -24,7 +23,6 @@ class _ExpensesState extends State<Expenses> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Expense Tracker'),
-        backgroundColor: Colors.grey[300],
         actions: [
           IconButton(onPressed: _openAddExpenseOverlay, icon: Icon(Icons.add)),
         ],
@@ -56,7 +54,7 @@ class _ExpensesState extends State<Expenses> {
           ),
           Spacer(),
           Card(
-            color: Colors.grey[300],
+            color: kColorScheme.secondaryFixedDim,
             elevation: 200,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
