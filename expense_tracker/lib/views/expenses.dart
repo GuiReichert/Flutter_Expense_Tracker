@@ -28,7 +28,10 @@ class _ExpensesState extends State<Expenses> {
         children: [
           Text('Chart will come here'),
           Expanded(
-            child: ExpensesList(expensesList: _registeredExpenses),
+            child: ExpensesList(
+              expensesList: _registeredExpenses,
+              removeItem: _removeExpense,
+            ),
           ),
         ],
       ),
@@ -37,10 +40,23 @@ class _ExpensesState extends State<Expenses> {
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
       builder: (ctx) {
-        return NewExpense();
+        return NewExpense(onSubmitExpense: _addExpense);
       },
     );
+  }
+
+  void _addExpense(ExpenseModel expense) {
+    setState(() {
+      _registeredExpenses.add(expense);
+    });
+  }
+
+  void _removeExpense(ExpenseModel expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
   }
 }
