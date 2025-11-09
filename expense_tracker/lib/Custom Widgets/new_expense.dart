@@ -83,7 +83,7 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(25, 40, 25, 25),
+      padding: EdgeInsets.fromLTRB(25, 15, 25, 25),
       child: Column(
         children: [
           TextField(
